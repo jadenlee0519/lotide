@@ -1,12 +1,12 @@
-const assertArraysEqual = function(arr1, arr2) {
-  const sucessMsg = `🟢 🟢 🟢 Arguments match: ${arr1} === ${arr2} 🟢 🟢 🟢 `;
-  const failMsg = `🔴 🔴 🔴 Arguments DO NOT match: ${arr1} === ${arr2} 🔴 🔴 🔴 `;
+const assertArraysEqual = function(actual, expected) {
+  const sucessMsg = `🟢 🟢 🟢 Arguments match: ${actual} === ${expected} 🟢 🟢 🟢 `;
+  const failMsg = `🔴 🔴 🔴 Arguments DO NOT match: ${actual} === ${expected} 🔴 🔴 🔴 `;
     let isEqual = false;
-    if (arr1.length === arr2.length) {
-      for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] === arr2[i]) {
+    if (actual.length === expected.length) {
+      for (let i = 0; i < actual.length; i++) {
+        if (actual[i] === expected[i]) {
           isEqual = true;
-        } else if (arr1[i] !== arr2[i]) {
+        } else if (actual[i] !== expected[i]) {
           console.log(failMsg);
           return;
         }
