@@ -12,48 +12,43 @@ const eqArrays = function(arr1, arr2) {
   return isEqual;
 };
 
-const assertArraysEqual = function(arr1, arr2) {
-  const sucessMsg = `🟢 🟢 🟢 Arguments match: ${arr1} === ${arr2} 🟢 🟢 🟢 `;
-  const failMsg = `🔴 🔴 🔴 Arguments DO NOT match: ${arr1} !== ${arr2} 🔴 🔴 🔴 `;
-  if (eqArrays(arr1, arr2)) {
-    console.log(sucessMsg);
-  } else {
-    console.log(failMsg);
-  }
-};
+// const assertArraysEqual = function(arr1, arr2) {
+//   const sucessMsg = `🟢 🟢 🟢 Arguments match: ${arr1} === ${arr2} 🟢 🟢 🟢 `;
+//   const failMsg = `🔴 🔴 🔴 Arguments DO NOT match: ${arr1} !== ${arr2} 🔴 🔴 🔴 `;
+//   if (eqArrays(arr1, arr2)) {
+//     console.log(sucessMsg);
+//   } else {
+//     console.log(failMsg);
+//   }
+// };
 
 
 
-
-
-const middle = function(arr) {
-
+const middle = arr => {
   let total = arr.length;
+  let middle1;
+  let middle2;
   let mid = [];
-  let midPoint1 = 0;
-  let midPoint2 = 0;
 
-  if (total <= 2) {
-    return mid;
-
-  } else if (total > 2 && total % 2 === 0) {
-    midPoint1 = total / 2;
-    midPoint2 = midPoint1 + 1;
-    mid.push(midPoint1);
-    mid.push(midPoint2);
-
+  if (total > 2 && total % 2 === 0) {
+    middle1 = total / 2;
+    middle2 = middle1 - 1;
+    mid.push(arr[middle2])
+    mid.push(arr[middle1])
   } else if (total > 2 && total % 2 !== 0) {
-    midPoint1 = (total + 1) / 2;
-    mid.push(midPoint1);
+    middle1 = Math.floor(total / 2);
+    mid.push(arr[middle1])
   }
-
   return mid;
-};
+}
 
 
-assertArraysEqual(middle([1, 2, 3]), [2]);
-assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
-assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
 
 
+// assertArraysEqual(middle([1, 2, 3]), [2]);
+// assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]);
+// assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
+// assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+
+
+module.exports = middle;
